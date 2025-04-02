@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useAuth, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { Settings } from "lucide-react";
+import { UserConfigPopover } from "./user-config-popover";
 
 export function Navbar() {
   const { isSignedIn } = useAuth();
@@ -24,14 +24,7 @@ export function Navbar() {
             Selecionar Pet
           </Button>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-white hover:bg-white/10"
-            onClick={() => console.log("Abrir modal de configurações")}
-          >
-            <Settings className="h-5 w-5" />
-          </Button>
+          <UserConfigPopover />
 
           <UserButton afterSignOutUrl="/" />
         </div>
