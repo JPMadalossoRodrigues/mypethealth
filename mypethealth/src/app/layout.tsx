@@ -2,6 +2,7 @@ import { Navbar } from "../components/layout/Navbar";
 import "./globals.css";
 import { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from 'sonner';
 
 export const metadata = {
   title: "MyPetHealth",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <body className="bg-black text-white min-h-screen">
           <Navbar />
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
