@@ -8,13 +8,33 @@ datasource db {
 }
 
 model User {
-  id               String   @id @default(cuid())
+  id               String   @id @default(uuid())
   clerkId          String   @unique
   nome             String?
-  email            String   @unique
+  email            String?
   telefone         String?
   notificacaoEmail Boolean  @default(true)
   notificacaoSMS   Boolean  @default(false)
+
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
+
+  pets             Pet[]
+}
+
+model Pet {
+  id         String   @id @default(uuid())
+  nome       String
+  especie    String
+  raca       String?
+  sexo       String
+  nascimento DateTime?
+  peso       Float?
+  avatar     String?
+  donoId     String
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  dono       User     @relation(fields: [donoId], references: [id], onDelete: Cascade)
 }
