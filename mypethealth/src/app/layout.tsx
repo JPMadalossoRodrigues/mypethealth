@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="pt-BR">
-        <body className="bg-black text-white min-h-screen">
+        <body suppressHydrationWarning className="bg-black text-white min-h-screen">
           <Navbar />
           {children}
           <Toaster />
